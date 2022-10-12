@@ -1,3 +1,5 @@
+USE [camposdin]
+GO
 -- Se crea el Stored Procedure de nombre Listar_Campos, con la variable de nombre @tabla la cual sera el nombre de la tabla que se quiere listar los campos
 CREATE PROCEDURE Listar_Campos @tabla nvarchar(20)
 AS
