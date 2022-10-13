@@ -2,11 +2,11 @@ USE [camposdin]
 GO
 
 INSERT INTO usuario(id_usuario,nombre_usuario,apellido1_usuario,apellido2_usuario,fnacimiento_usuario,borrado,vigencia)
-VALUES (1,'Benjamín','Sanchez','Borgeaud',2002-07-20,0,1),
-(2,'Roberto','Nieves','Tocornal',2001-05-13,0,1),
-(3,'Edward','Contreras','Aqueveque',2002-05-03,0,1),
-(4,'Christian','González','Retamal',2001-08-15,0,1),
-(5,'Joaquín','Aguilar','Ampuero',2002-01-08,0,1);
+VALUES (1,'Benjamín','Sanchez','Borgeaud','2002-07-20',0,1),
+(2,'Roberto','Nieves','Tocornal','2001-05-13',0,1),
+(3,'Edward','Contreras','Aqueveque','2002-05-03',0,1),
+(4,'Christian','González','Retamal','2001-08-15',0,1),
+(5,'Joaquín','Aguilar','Ampuero','2002-01-08',0,1);
 
 INSERT INTO region (id_region,num_region,nombre_region,borrado,vigencia)
 VALUES (1,2,'Región de Antofagasta',0,1),
