@@ -23,7 +23,8 @@ use App\Http\Controllers\FormulariosController;
 Route::get('/index',[HomeController::class,'index']);
 Route::get('/formularios', [FormulariosController::class, 'list_formularios']);
 
-Route::get('/prodview','TestController@prodfunct');
+Route::get('/prodview','FormulariosController@prodfunct');
+Route::get('/findProductName','FormulariosController@findProductName');
 
 Route::get('/formularios/crear', [FormulariosController::class, 'crear_formulario']);
 Route::post('/formularios/crear',  [FormulariosController::class, 'guardar_formulario']);

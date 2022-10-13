@@ -44,6 +44,19 @@ class FormulariosController extends Controller
     }
 
     public function prodfunct(){
-        return view('crear');
+
+        $listado =UsuariosForms::all(); //Obtenemos los datos de tablas
+
+        return view('crear',compact('prod '));
     }
+
+    public function findProductName(Request $request){
+
+		
+
+        $data=Product::select('nombre_usuario','id_usuario')->where('apellido1_usuario',$request->id_usuario)->take(100)->get();
+        return response()->json($data);//then sent this data to ajax success
+     
+	}
+
 }

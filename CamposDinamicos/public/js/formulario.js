@@ -34,11 +34,3 @@ let agregar = document.getElementById('agregar');
             };
             console.log(form)
         });
-
-(document).ready(function(){
-    (document).on('Cambiado','#tablas', function(){
-        console.log('Cambio realizado');
-
-    });
-
-});
