@@ -23,13 +23,10 @@ use App\Http\Controllers\FormulariosController;
 Route::get('/index',[HomeController::class,'index']);
 Route::get('/formularios', [FormulariosController::class, 'list_formularios']);
 
-Route::get('/prodview','FormulariosController@prodfunct');
-Route::get('/findProductName','FormulariosController@findProductName');
-
 Route::get('/formularios/crear', [FormulariosController::class, 'crear_formulario']);
-Route::post('/formularios/crear',  [FormulariosController::class, 'guardar_formulario']);
+
+
 
 Route::get('/formularios/ver/{id}', [FormulariosController::class, 'ver_formulario']);
 
 Route::get('/formularios/editar/{id}', [FormulariosController::class, 'editar_formulario']);
-//Route::put('/formularios/editar/{id}',  [FormulariosController::class, 'update_formulario']);

@@ -34,7 +34,11 @@
                     <a href="/formularios/editar/{{$dato->id_formulario}}" class="btn btn-warning">Editar</a> 
                     <a href="/formularios/ver/{{$dato->id_formulario}}" class="btn btn-success">Ver</a></td>
                 </tr>
+                
                 @endforeach
+
+
+                
             </tbody>
         </table>
     </div>
