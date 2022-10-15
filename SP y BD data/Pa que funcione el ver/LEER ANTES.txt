@@ -1,0 +1,2 @@
+FormulariosController reemplazar en controllers
+ver.blade reemplazar en views
