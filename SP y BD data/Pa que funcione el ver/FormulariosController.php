@@ -39,10 +39,10 @@ class FormulariosController extends Controller
     public function editar_formulario($id){
         $values = [$id];
         $query = DB::select('EXEC Listar_Enlaces ?',$values);
-        $query2 = DB::select('EXEX Listar_tablas');
+        $query2 = DB::select('EXEC Listar_tablas');
         
         
-        return view('editar',['enlaces'=> $query, 'listado'=> $query2, 'campo'=> $query3]);
+        return view('editar',['enlaces'=> $query, 'listado'=> $query2]);
     }
 
     public function prodfunct(){
