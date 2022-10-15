@@ -30,7 +30,7 @@
                 <th scope="col">ALGO</th>
             </thead>
             <tbody>
-                @foreach($ago as $dato)
+                @foreach($listado as $dato)
                 <tr>
                 <td scope="row">{{$dato->id_formulario}}</td>
                 <td scope="row">{{$dato->nombre_tabla}}</td>
