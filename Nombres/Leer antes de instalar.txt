@@ -1,3 +1,0 @@
-Instalar SP ListarFormularioScript.sql y ListarUsuarioScript.sql
-Copiar FormulariosController en ...\CamposDinamicos\app\Http\Controllers
-Copiar ver.blade.php y formularios.blade.php en ...\CamposDinamicos\resources\views
