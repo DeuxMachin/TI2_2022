@@ -1,0 +1,1 @@
+Desde mssql ir a camposdin>dbo.formulario>columnas> y eliminar la FK de id_formulario
