@@ -60,36 +60,7 @@
 
 
                     <div id="contenedor"> 
-                        @foreach($enlaces as $dato1)
-                        <div class="form-row clonar mt-2">
-                            <div class="row border rounded">
-                                <div class="col mt-2 mb-2">
-                                    <select class="form-select" aria-label="Default select example" name="tablas[]" id="tablas" >
-                                        <option value="" selected disabled hidden>Seleccionar Tabla</option>
-                                        @foreach($listado as $dato)
-                                        <option value="{{$dato->name}}">{{$dato->name}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="col mt-2 mb-2">
-                                    <select class="form-select" aria-label="Default select example" name="campos[]" id="campos" >
-                                        <option value="" selected disabled hidden>Seleccionar Campo</option>
-                                    </select>
-                                </div>
-                                <div class="col mt-2 mb-2">
-                                    <select class="form-select" aria-label="Default select example" name="visibilidad[]" id="visibilidad" >
-                                        <option value="" selected disabled hidden>Seleccionar Visibilidad</option>
-                                        <option value="1">Si</option>
-                                        <option value="0">No</option>
-                                    </select>
-                                </div>
-                                <div class="col mt-2 mb-2 text-center">
-                                    <button type="button" class="btn btn-danger puntero ocultar">Eliminar</button>
-                                </div>
-                                
-                            </div>
-                    </div>
-                        @endforeach
+
                     </div>
                     <div class="form-row mt-2 mb-2">
                         <div class="col-md-12">

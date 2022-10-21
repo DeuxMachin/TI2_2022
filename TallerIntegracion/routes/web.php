@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FormulariosController;
-
+use App\Http\Controllers\PruebaController;
+use App\Http\Controllers\EditarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,14 +21,20 @@ use App\Http\Controllers\FormulariosController;
 //    return view('inicio');
 //});
 
-Route::get('/index',[HomeController::class,'index']);
+Route::get('/',[HomeController::class,'index']);
 Route::get('/formularios', [FormulariosController::class, 'list_formularios']);
 
 Route::get('/formularios/crear', [FormulariosController::class, 'crear_formulario']);
 Route::post('/formularios/crear',  [FormulariosController::class, 'guardar_formulario']);
+
 
 Route::get('/formularios/ver/{id}', [FormulariosController::class, 'ver_formulario']);
 
 Route::get('/formularios/editar/{id}', [FormulariosController::class, 'updateselectedCampos']);
 
 Route::get('get-states', [FormulariosController::class, 'getStates'])->name('getStates');
+
+
+Route::post('/formularios/crear',  [PruebaController::class, 'store']);
+
+Route::post('/formularios/editar/{id}',  [EditarController::class, 'store']);

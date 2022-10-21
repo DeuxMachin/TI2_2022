@@ -15,7 +15,7 @@ class FormulariosController extends Controller
         //$query = DB::select("exec Listar_Formularios :parametro",array( 'id'=>$id )); 
          #Este seria el parametro del id del usuario
     
-        $values = [2];
+        $values = [3];
         $query = DB::select('EXEC Listar_Formularios ?',$values);
         $query2 = DB::select('EXEC Listar_Usuario ?', $values);
         return view('formularios',['listado'=> $query, 'usuario'=>$query2]);
