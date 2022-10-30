@@ -107,13 +107,13 @@
                         var DA= e.target.parentNode.parentNode;
                         var CallTables = DA.querySelector('.data1');
                         var CallCamps = DA.querySelector('.data2');  
-                        console.log(CallTables)
+                        // console.log(CallTables)
                         
                         /* The above code is listening for a change in the CallTables dropdown. */
-                        $(CallTables).on('click', function () {                           
+                        $(CallTables).off('click').on('click', function () {                           
                             /* Getting the value of the selected option in the dropdown. */
                             var id_usuario = this.value;
-                            console.log(id_usuario); 
+                            // console.log(id_usuario); 
                             $(CallCamps).html('');               
                             $.ajax({                                
                                 /* Calling the route `getStates` and passing the value of the variable
