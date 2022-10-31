@@ -28,34 +28,35 @@
                         </div>
                     </div>
 
-
-                    <div class="form-row clonar mt-2">
-                            <div class="row border rounded">
-                                <div class="col mt-2 mb-2">
-                                    <select class="form-select" aria-label="Default select example" name="tablas[]" id="tablas" >
-                                        <option value="" selected disabled hidden>Seleccionar Tabla</option>
-                                        @foreach($listado as $dato)
-                                        <option value="{{$dato->name}}">{{$dato->name}}</option>
-                                        @endforeach
-                                    </select>
+                    <div class="form-row mt-2" hidden>
+                        <div class="form-row clonar mt-2">
+                                <div class="row border rounded">
+                                    <div class="col mt-2 mb-2">
+                                        <select class="form-select data1" aria-label="Default select example" name="tablas[]" id="tablas" >
+                                            <option value="" selected disabled hidden>Seleccionar Tabla</option>
+                                            @foreach($listado as $dato)
+                                            <option value="{{$dato->name}}">{{$dato->name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="col mt-2 mb-2">
+                                        <select class="form-select data2" aria-label="Default select example" name="campos[]" id="campos" >
+                                            <option value="" selected disabled hidden>Seleccionar Campo</option>
+                                        </select>
+                                    </div>
+                                    <div class="col mt-2 mb-2">
+                                        <select class="form-select" aria-label="Default select example" name="visibilidad[]" id="visibilidad" >
+                                            <option value="" selected disabled hidden>Seleccionar Visibilidad</option>
+                                            <option value="1">Si</option>
+                                            <option value="0">No</option>
+                                        </select>
+                                    </div>
+                                    <div class="col mt-2 mb-2 text-center">
+                                        <button type="button" class="btn btn-danger puntero ocultar">Eliminar</button>
+                                    </div>
+                                    
                                 </div>
-                                <div class="col mt-2 mb-2">
-                                    <select class="form-select" aria-label="Default select example" name="campos[]" id="campos" >
-                                        <option value="" selected disabled hidden>Seleccionar Campo</option>
-                                    </select>
-                                </div>
-                                <div class="col mt-2 mb-2">
-                                    <select class="form-select" aria-label="Default select example" name="visibilidad[]" id="visibilidad" >
-                                        <option value="" selected disabled hidden>Seleccionar Visibilidad</option>
-                                        <option value="1">Si</option>
-                                        <option value="0">No</option>
-                                    </select>
-                                </div>
-                                <div class="col mt-2 mb-2 text-center">
-                                    <button type="button" class="btn btn-danger puntero ocultar">Eliminar</button>
-                                </div>
-                                
-                            </div>
+                        </div>
                     </div>
 
 
@@ -74,29 +75,49 @@
 
     <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
 
-    <script>
+    <script type="text/javascript">
         $(document).ready(function () {
-            $('#tablas').on('change', function () {
-
-                var id_usuario = this.value;
-                console.log(id_usuario);
-                $('#campos').html('');
-
-                $.ajax({
-                    url: '{{ route('getStates') }}?id_usuario='+id_usuario,
-                    type: 'get',
-                    success: function (res) {
-                        console.log(res);
-                        $.each(res, function (key, value) {
-                            $('#campos').append('<option value="' + value.COLUMN_NAME + '">' + value.COLUMN_NAME + '</option>');
+            /* Listening for a click event on the `contenido` element. */
+            contenedor.addEventListener('click', e =>{            
+                e.preventDefault();          
+                /* Checking if the element clicked has the class `data1` */
+                if(e.target.classList.contains('data1')){
+                        /* Selecting the first element with the class `data1` */
+                        var DA= e.target.parentNode.parentNode;
+                        var CallTables = DA.querySelector('.data1');
+                        var CallCamps = DA.querySelector('.data2');  
+                        // console.log(CallTables)
+                        
+                        /* The above code is listening for a change in the CallTables dropdown. */
+                        $(CallTables).off('click').on('click', function () {                           
+                            /* Getting the value of the selected option in the dropdown. */
+                            var id_usuario = this.value;
+                            // console.log(id_usuario); 
+                            $(CallCamps).html('');   
+                                      
+                            $.ajax({                                
+                                /* Calling the route `getStates` and passing the value of the variable
+                                `id_usuario` as a parameter. */
+                                url: '{{ route('getStates') }}?id_usuario='+id_usuario,
+                                /* Sending a GET request to the server. */
+                                type: 'get',  
+                                
+                                success: function (res) {
+                                    console.log(id_usuario);
+                                    console.log(res);                                  
+                                    $.each(res, function (key, value) {         
+                                        $(CallCamps).append('<option value="' + value.COLUMN_NAME + '">' + value.COLUMN_NAME + '</option>');       
+                                    });
+                                }
+                            });
+                            
                         });
                     }
-                });
-                
             });
+  
         });
-
-        </script>
+    
+    </script>
 
     <script src="{{ asset('js/formulario.js') }}"></script>
     
