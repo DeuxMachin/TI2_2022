@@ -1,0 +1,8 @@
+ANTES ACTUALIZAR LA BD CON 'Act BD ULTIMO SPRINT'
+
+COPIAR Y PEGAR ESTO EN CONSOLA: 
+php artisan make:model Registro
+
+php artisan make:model RegistroEnlaces
+
+LUEGO REEMPLAZAR EL DE LOS ARCHIVOS SUBIDOS
